@@ -1,4 +1,4 @@
-Lumen Explorer Version 1.0.0 - 25/1/2019
+Lumen Explorer Version 1.0.0
 ---------------------------------
 Lumen explorer is a (image processing - machine learning - topology) pipeline 
 developed by Haitham Seada at Kim Boekelheide's lab in the center of Predictive
