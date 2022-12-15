@@ -8,4 +8,4 @@ while exist(file, 'file')
     i = i + 1;
     file = sprintf('lumen-boundaries-%02d.txt', i);
 end
-calculateVolumeAndArea(lumenFilePaths, true, true);
+[allVolumes allAreas] = calculateVolumeAndArea(lumenFilePaths, true, true)

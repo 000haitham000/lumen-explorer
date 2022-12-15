@@ -3,21 +3,13 @@ function [allVolumes, allAreas] = calculateVolumeAndArea( ...
     savePlotEach, ...
     savePlotAll)
 %calculateVolumeAndArea returns volumes and surface areas of the argument
-%shapes.
-%   The function returns the surface area as a by-product.
-    
-    timeStep = 0.1;
-    rotationStep = 0.1;
+%shapes. The function returns the surface area as a by-product.
     scalingFactor = 0.5;
     zDiff = 3;
-
-%     volumes = zeros(length(filePathList), 1);
-%     areas = zeros(length(filePathList), 1);
     allPoints = {length(filePathList)};
     originalPoints = {length(filePathList)};
     pointsDiff = {length(filePathList)};
     allShapes = {length(filePathList)};
-%     originalShapes = {length(filePathList)};
     allVolumes = zeros(length(filePathList), 1);
     allAreas = zeros(length(filePathList), 1);
     for i = 1 : length(filePathList)
@@ -34,7 +26,6 @@ function [allVolumes, allAreas] = calculateVolumeAndArea( ...
         pointsDiff{i} = getPointsDiff(allPoints{i}, originalPoints{i});
         % Create shape
         allShapes{i} = alphaShape(allPoints{i}, 20, 'HoleThreshold', 100);
-%         originalShapes{i} = alphaShape(originalPoints{i}, 20, 'HoleThreshold', 100);
         % Compute volume
         allVolumes(i) = volume(allShapes{i});
         % Compute surface area
@@ -44,14 +35,6 @@ function [allVolumes, allAreas] = calculateVolumeAndArea( ...
     if savePlotEach
         for i = 1 : length(allPoints)
             oPoints = originalPoints{i};
-%             % Plot the original shape
-%             f = figure;
-%             view([20 25]);
-%             grid on
-%             hold on
-%             plot(originalShapes{i});
-%             scatter3(oPoints(:, 1), oPoints(:, 2), oPoints(:, 3), 70, 'MarkerFaceColor', [0.5, 0.5, 0.5], 'MarkerEdgeColor', [0, 0, 0]);
-%             hold off
             % Plot the augmented shape
             f = figure;
             view([20 25]);
@@ -82,12 +65,6 @@ function [allVolumes, allAreas] = calculateVolumeAndArea( ...
         hold on
         for i = 1 : length(allPoints)
             plot(allShapes{i});
-%             points = allPoints{i};
-%             faces = allFaces{i};
-%             % Plot the surface
-%             trisurf(faces, points(:, 1), points(:, 2), points(:, 3), ...
-%                 'facecolor', 'c', ...
-%                 'edgecolor', 'b')
         end
         hold off
         grid on
