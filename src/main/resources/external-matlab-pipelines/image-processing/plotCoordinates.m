@@ -1,0 +1,9 @@
+function plotCoordinates(coordinates)
+    hold on
+    scatter(coordinates(:, 1), coordinates(:, 2), ...
+        25, ...
+        'MarkerFaceColor', 'w', ...
+        'MarkerEdgeColor', 'k');
+    hold off
+end
+

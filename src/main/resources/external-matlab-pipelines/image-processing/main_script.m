@@ -1,0 +1,49 @@
+clear all
+clc
+%% Input
+% Mode
+mode = 'preclassify';
+% Image path
+% cellImagePath = 'R:\BM_JM_PredictiveBiology\Boekelheide Lab\Haitham\2018-3-28 stainless steel mold MCF7\selected\r03c06f02\r03c06f02p30-ch1sk1fk1fl1.tiff';
+% wallImagePath = 'R:\BM_JM_PredictiveBiology\Boekelheide Lab\Haitham\2018-3-28 stainless steel mold MCF7\selected\r03c06f02\r03c06f02p30-ch2sk1fk1fl1.tiff';
+cellImagePath = 'F:\data\2018-10-10 MCF7 for Corteva\categorized\E2\0.0001\selected\r08c04f04\r08c04f04p10-ch1sk1fk1fl1.tiff';
+wallImagePath = 'F:\data\2018-10-10 MCF7 for Corteva\categorized\E2\0.0001\selected\r08c04f04\r08c04f04p10-ch2sk1fk1fl1.tiff';
+outputPath = 'E:\Dropbox\Harmony\3D Harmony counts\Test Images\labeled images';
+% Manually identified lumens coordinates
+coordinates = [];
+%coordinates = [551 452];
+%% Parameters
+% Linear fusion parameter
+linearFusionWeight = 0.6;
+% The scaling factor used by the tagging software on images before allowing
+% the user to manually identify images
+taggingScalingFactor = 0.8;
+% Disk size
+diskSizeStart = 10;
+diskSizeStep = 5;
+diskSizeEnd = 40;
+% Binarization threshold
+binarizationThreshold = 0.2;
+% Morphological Opening Size
+openingSize = 500;
+% Sub-image margin area percent
+subImageMarginAreaPercent = 0.5;
+% Sub-image margin maximum disk radius
+subImageMarginMaxDiskRadius = 25;
+
+subImageInfo = extractData( ...
+    mode, ...
+    cellImagePath, ...
+    wallImagePath, ...
+    outputPath, ...
+    linearFusionWeight, ...
+    coordinates, ...
+    taggingScalingFactor, ...
+    diskSizeStart, ...
+    diskSizeStep, ...
+    diskSizeEnd, ...
+    binarizationThreshold, ...
+    openingSize, ...
+    subImageMarginAreaPercent, ...
+    subImageMarginMaxDiskRadius, ...
+    true);
