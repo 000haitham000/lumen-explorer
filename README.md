@@ -15,24 +15,24 @@ the volume of each of these stacks is calculated.
 
 DEPENDENCIES
 ------------
-This code was developed using NetBeans. Although using other IDEs is possible,
+- This code was developed using NetBeans. Although using other IDEs is possible,
 using NetBeans to run and modify this code is the easiest.
 
-The application uses MATLAB binaries (JAR files) for image processing, deep
+- The application uses MATLAB binaries (JAR files) for image processing, deep
 learning and volumetric analysis. All JAR files and their original MATLAB
 source codes can be found in this repository.
 
-Unless you have the same exact MATLAB Runtime used to create these JARs
+- Unless you have the same exact MATLAB Runtime used to create these JARs
 (R2018a (9.4)) you will need to re-generate the JARS (re-compile the MATLAB
 code into JARs). For this purpose you can also find the required .prj files
 attached. Open each using your version of MATLAB and click "Package" in the
-MATLAB compiler screen
+MATLAB compiler screen.
 
-In the dependencies block of build.gradle and update the paths of 
+- In the dependencies block of build.gradle and update the paths of 
 javabuilder.jar (the library needed by Java to call MATLAB generated JARs),
 lumenClassify.jar, lumen_detection.jar and lumenAnalysis.jar
 
-Finally, in properties.properties file, update the paths of working-dir (root
+- Finally, in properties.properties file, update the paths of working-dir (root
 output directory), final-output (final output directory under working-dir,
 contains the final volumes, surface areas and figures) and
 preclassification-dir (intermediate output directory under working-dir, stores
